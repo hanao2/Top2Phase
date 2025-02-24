@@ -3,7 +3,7 @@
 
 This package (Top2Phase) implements the graph neural network for classificaiton of water phases, it constructs graphs based on the positioanal information of neighboring water molecules obtained from molecular dynamics trajectories and train graph neural network model to classify these phase using only edge information.
 
-For further information check out [the paper]([https://doi.org](https://pubs.acs.org/doi/full/10.1021/acs.jpcc.2c07423).
+For further information check out [the paper](https://pubs.acs.org/doi/full/10.1021/acs.jpcc.2c07423).
 
 ![](images/image.png)
 
