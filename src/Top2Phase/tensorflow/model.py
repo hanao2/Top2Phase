@@ -1,26 +1,26 @@
-import numpy as np
 import os
+import numpy as np
+import tensorflow as tf
 from tensorflow.keras.layers import Dense, Input
 from tensorflow.keras.models import Model
-import tensorflow as tf
 from spektral.layers.pooling import global_pool
-
 from spektral.transforms.normalize_adj import NormalizeAdj
 from spektral.layers import ECCConv
 
 
 class PhaseModel(Model):
     def __init__(self, 
-                Node_dim=2, 
-                Edge_dim=1, 
-                Output_dim=1, 
-                kernel_network=[30,60,30], 
-                ecc_layers=3, 
-                ecc_hidden_factor=3,
-                mlp_layers=3,
-                pool_type='sum',
-                activation='relu',
-                use_bias=True):
+            Node_dim: int = 2, 
+            Edge_dim: int = 1, 
+            Output_dim: int = 1, 
+            kernel_network: list = [30,60,30], 
+            ecc_layers: int = 3, 
+            ecc_hidden_factor: int = 3,
+            mlp_layers: int = 3,
+            pool_type: str = 'sum',
+            activation: str = 'relu',
+            use_bias: bool = True
+            ):
         # Store all networks architecture in config
         self.config = {'Node_dim': Node_dim,
                        'Edge_dim': Edge_dim,
@@ -59,10 +59,12 @@ class PhaseModel(Model):
         if self.non_functional:
             pass
 
+
     def get_config(self):
         return self.config
     
-    def call(self, inputs,training=True):
+
+    def call(self, inputs, training: bool = True):
         x, a, e = inputs
         
         for ecc_layer in range(self.config['ecc_layers']):
@@ -73,27 +75,3 @@ class PhaseModel(Model):
         for mlp_layer in range(self.config['mlp_layers']):
             x = self.MLPNet[mlp_layer](x)
         return x
-'''
-model = PhaseModel()
-loss_fn = tf.keras.losses.BinaryCrossentropy(from_logits=True)
-opt = Adam(lr=0.0001) 
-@tf.function(input_signature=loader_tr.tf_signature(), experimental_relax_shapes=True)
-def train_step(inputs, target):
-    with tf.GradientTape() as tape:
-        predictions = model(inputs, training=True)
-        loss = loss_fn(target, predictions)
-        loss += sum(model.losses)
-    gradients = tape.gradient(loss, model.trainable_variables)
-    opt.apply_gradients(zip(gradients, model.trainable_variables))
-    return loss    
-def train_step(self, seq, conc, gt_expr):
-        with tf.GradientTape() as tape:
-            predictions = self.model(inputs = (seq, conc), training=True)
-            loss = self.loss(gt_expr, predictions)
-
-        gradients = tape.gradient(loss, self.model.trainable_variables)
-        self.optimizer.apply_gradients(zip(gradients, self.model.trainable_variables))
-
-        #Note: Train loss is being updated by a loss which obtained by training = True prediction
-        self.running_loss_train(loss)
-'''
