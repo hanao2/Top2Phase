@@ -5,7 +5,7 @@ This package (Top2Phase) implements the graph neural network for classificaiton 
 
 For further information check out [the paper](https://pubs.acs.org/doi/full/10.1021/acs.jpcc.2c07423).
 
-![](images/image.png)
+![Alt text](doc/logo.jpg)
 
 ## Table of Contents
 
