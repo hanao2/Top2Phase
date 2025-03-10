@@ -5,11 +5,10 @@ This package (Top2Phase) implements the graph neural network for classificaiton 
 
 For further information check out [the paper](https://pubs.acs.org/doi/full/10.1021/acs.jpcc.2c07423).
 
-![Alt text](doc/logo.jpg)
+![Alt text](doc/logo.gif)
 
 ## Table of Contents
 
-- [How to cite](#how-to-cite)
 - [Installation](#Installation)
 - [Usage](#usage)
   - [Trajectory to Graph](#MD-Data-Processing)
@@ -19,7 +18,7 @@ For further information check out [the paper](https://pubs.acs.org/doi/full/10.1
   - [Visualize the results](#visualize-the-results)
 - [Data](#data)
 - [Authors](#authors)
-- [License](#license)
+- [License and credits](#License-and-credits)
 
 Topological Classification of Water Phases Using Edge-Conditioned Convolutional Graph Neural Network  
 
@@ -183,3 +182,11 @@ Prediction
 ```
 python run.py # We will add further details for making it more user-friendly
 ```
+
+## License and credits
+This project is licensed under the GNU General Public License v3.0. See the [LICENSE](./license.txt)
+If you use this project in your research, please cite it as follows:
+- Alireza Moradzadeh, Hananeh Oliaei, Narayana R. Aluru. "Topology-Based Phase Identification of Bulk, Interface, and Confined Water Using an Edge-Conditioned Convolutional Graph Neural Network" The Journal of Physical Chemistry C 127 (5), 2612-2621 (2023).
+[![doi:10.1021/acs.jpcc.2c07423](https://img.shields.io/badge/DOI-10.1021%2Facs.jpcc.2c07423-blue)](https://doi.org/10.1021/acs.jpcc.2c07423)
+
+
